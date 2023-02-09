@@ -1,0 +1,38 @@
+<ng-container *ngIf="tableWrapperModel">
+  <table>
+    <thead>
+      <tr>
+        <ng-container *ngFor="let header of tableWrapperModel.headings">
+          <th style="text-align: {{ header.alignment }};">
+            {{ header.title }}
+          </th>
+        </ng-container>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container>
+        <tr *ngFor="let row of tableWrapperModel?.dataRows">
+          <ng-container *ngFor="let cell of row.data; let idx = index">
+            <ng-container
+              *ngIf="!cell.action; then textCell; else actionCell"
+            ></ng-container>
+            <ng-template #textCell>
+              <td class="text-cell"
+                style="text-align: {{
+                  tableWrapperModel.headings[idx]?.alignment
+                }} "
+              >
+                {{ cell.data }}
+              </td>
+            </ng-template>
+            <ng-template #actionCell>
+              <td class="action-cell">
+                <input type="checkbox" name="" id="" />
+              </td>
+            </ng-template>
+          </ng-container>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</ng-container>

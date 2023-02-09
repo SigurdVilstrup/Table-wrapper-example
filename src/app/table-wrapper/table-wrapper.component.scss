@@ -1,0 +1,26 @@
+table {
+  border-collapse: collapse;
+
+  th {
+    font-size: small;
+    font-weight: 400;
+    color: grey;
+    text-transform: uppercase;
+    padding: 8px;
+  }
+  tr {
+    border-top: solid #ccc 1px;
+    border-bottom: solid #ccc 1px;
+  }
+  td {
+    padding: 8px;
+    &.text-cell {
+      min-width: 100px;
+    }
+    &.action-cell {
+      &:hover {
+        background-color: #eee;
+      }
+    }
+  }
+}
